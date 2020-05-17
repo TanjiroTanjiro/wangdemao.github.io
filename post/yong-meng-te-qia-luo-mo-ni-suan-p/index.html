@@ -1,22 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://wangdemao.github.io</id>
-    <title>Wang Demao&apos;s blog</title>
-    <updated>2020-05-17T06:31:24.950Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://wangdemao.github.io"/>
-    <link rel="self" href="https://wangdemao.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://wangdemao.github.io/images/avatar.png</logo>
-    <icon>https://wangdemao.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Wang Demao&apos;s blog</rights>
-    <entry>
-        <title type="html"><![CDATA[用蒙特卡洛模拟算π]]></title>
-        <id>https://wangdemao.github.io/post/yong-meng-te-qia-luo-mo-ni-suan-p/</id>
-        <link href="https://wangdemao.github.io/post/yong-meng-te-qia-luo-mo-ni-suan-p/">
-        </link>
-        <updated>2020-05-17T06:29:35.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://wangdemao.github.io/wangdemao/post/yong-meng-te-qia-luo-mo-ni-suan-p/">更好的阅读体验。</a></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>用蒙特卡洛模拟算π | Wang Demao&#39;s blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wangdemao.github.io/favicon.ico?v=1589697079443">
+<link rel="stylesheet" href="https://wangdemao.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="更好的阅读体验。
+“相信大家都知道π，但怎么用C++算出π呢，今天我们就来探讨一下。”{\color{grey}“ 相信大家都知道π，但怎么用C++算出π呢，今天我们就来探讨一下。”}“相信大家都知道π，但怎么用C++算出π呢，今天我们就来..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wangdemao.github.io">
+        <img src="https://wangdemao.github.io/images/avatar.png?v=1589697079443" class="site-logo">
+        <h1 class="site-title">Wang Demao&#39;s blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://wangdemao.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">用蒙特卡洛模拟算π</h2>
+            <div class="post-date">2020-05-17</div>
+            
+            <div class="post-content" v-pre>
+              <p><a href="https://wangdemao.github.io/wangdemao/post/yong-meng-te-qia-luo-mo-ni-suan-p/">更好的阅读体验。</a></p>
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="grey"><mi mathvariant="normal">“</mi><mi mathvariant="normal">相</mi><mi mathvariant="normal">信</mi><mi mathvariant="normal">大</mi><mi mathvariant="normal">家</mi><mi mathvariant="normal">都</mi><mi mathvariant="normal">知</mi><mi mathvariant="normal">道</mi><mi>π</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">但</mi><mi mathvariant="normal">怎</mi><mi mathvariant="normal">么</mi><mi mathvariant="normal">用</mi><mi>C</mi><mo>+</mo><mo>+</mo><mi mathvariant="normal">算</mi><mi mathvariant="normal">出</mi><mi>π</mi><mi mathvariant="normal">呢</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">今</mi><mi mathvariant="normal">天</mi><mi mathvariant="normal">我</mi><mi mathvariant="normal">们</mi><mi mathvariant="normal">就</mi><mi mathvariant="normal">来</mi><mi mathvariant="normal">探</mi><mi mathvariant="normal">讨</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">下</mi><mi mathvariant="normal">。</mi><mi mathvariant="normal">”</mi></mstyle></mrow><annotation encoding="application/x-tex">{\color{grey}“ 相信大家都知道π，但怎么用C++算出π呢，今天我们就来探讨一下。”}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord" style="color:grey;">“</span><span class="mord cjk_fallback" style="color:grey;">相</span><span class="mord cjk_fallback" style="color:grey;">信</span><span class="mord cjk_fallback" style="color:grey;">大</span><span class="mord cjk_fallback" style="color:grey;">家</span><span class="mord cjk_fallback" style="color:grey;">都</span><span class="mord cjk_fallback" style="color:grey;">知</span><span class="mord cjk_fallback" style="color:grey;">道</span><span class="mord mathdefault" style="margin-right:0.03588em;color:grey;">π</span><span class="mord cjk_fallback" style="color:grey;">，</span><span class="mord cjk_fallback" style="color:grey;">但</span><span class="mord cjk_fallback" style="color:grey;">怎</span><span class="mord cjk_fallback" style="color:grey;">么</span><span class="mord cjk_fallback" style="color:grey;">用</span><span class="mord mathdefault" style="margin-right:0.07153em;color:grey;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin" style="color:grey;">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord" style="color:grey;">+</span><span class="mord cjk_fallback" style="color:grey;">算</span><span class="mord cjk_fallback" style="color:grey;">出</span><span class="mord mathdefault" style="margin-right:0.03588em;color:grey;">π</span><span class="mord cjk_fallback" style="color:grey;">呢</span><span class="mord cjk_fallback" style="color:grey;">，</span><span class="mord cjk_fallback" style="color:grey;">今</span><span class="mord cjk_fallback" style="color:grey;">天</span><span class="mord cjk_fallback" style="color:grey;">我</span><span class="mord cjk_fallback" style="color:grey;">们</span><span class="mord cjk_fallback" style="color:grey;">就</span><span class="mord cjk_fallback" style="color:grey;">来</span><span class="mord cjk_fallback" style="color:grey;">探</span><span class="mord cjk_fallback" style="color:grey;">讨</span><span class="mord cjk_fallback" style="color:grey;">一</span><span class="mord cjk_fallback" style="color:grey;">下</span><span class="mord cjk_fallback" style="color:grey;">。</span><span class="mord" style="color:grey;">”</span></span></span></span></span></p>
 <h2 id="01算法">01.算法</h2>
 <p>相信大家都知道下图中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">方</mi><mi mathvariant="normal">块</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">面</mi><mi mathvariant="normal">积</mi><mo>:</mo><mi mathvariant="normal">圆</mi><mi mathvariant="normal">圈</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">面</mi><mi mathvariant="normal">积</mi><mo>=</mo><mn>4</mn><mo>:</mo><mi>π</mi></mrow><annotation encoding="application/x-tex">方块的面积:圆圈的面积=4:π</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">块</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">面</span><span class="mord cjk_fallback">积</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord cjk_fallback">圆</span><span class="mord cjk_fallback">圈</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">面</span><span class="mord cjk_fallback">积</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span></span></span></span>，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi><mo>=</mo><mi mathvariant="normal">圆</mi><mi mathvariant="normal">圈</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">面</mi><mi mathvariant="normal">积</mi><mo>÷</mo><mi mathvariant="normal">方</mi><mi mathvariant="normal">块</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">面</mi><mi mathvariant="normal">积</mi></mrow><annotation encoding="application/x-tex">π=圆圈的面积÷方块的面积</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">圆</span><span class="mord cjk_fallback">圈</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">面</span><span class="mord cjk_fallback">积</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">块</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">面</span><span class="mord cjk_fallback">积</span></span></span></span>×4,。</p>
@@ -74,6 +153,37 @@ int main()
 <figure data-type="image" tabindex="2"><img src="https://wangdemao.github.io/post-images/1589697071256.jpg" alt="" loading="lazy"></figure>
 <p>注：由于C++精度问题，可能会有误差</p>
 <p>谢谢大家。</p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
