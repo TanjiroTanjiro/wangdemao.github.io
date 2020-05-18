@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangdemao.github.io</id>
     <title>Wang Demao&apos;s blog</title>
-    <updated>2020-05-18T07:23:41.238Z</updated>
+    <updated>2020-05-18T07:25:46.550Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangdemao.github.io"/>
     <link rel="self" href="https://wangdemao.github.io/atom.xml"/>
@@ -10,6 +10,53 @@
     <logo>https://wangdemao.github.io/images/avatar.png</logo>
     <icon>https://wangdemao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Wang Demao&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 UVA11462 【Age Sort】 ]]></title>
+        <id>https://wangdemao.github.io/post/ti-jie-uva11462-age-sort/</id>
+        <link href="https://wangdemao.github.io/post/ti-jie-uva11462-age-sort/">
+        </link>
+        <updated>2020-05-18T07:25:14.000Z</updated>
+        <content type="html"><![CDATA[<p>这题几个坑点（没通过的同学请注意）：</p>
+<ol>
+<li>输出末尾不能有空格，否则会WA。</li>
+<li>这题没有过度卡常，普通 <code>sort</code> 即可。</li>
+<li>如果用 cin/cout 的话，要加上流优化：</li>
+</ol>
+<pre><code class="language-cpp">ios::sync_with_stdio(0); 
+</code></pre>
+<h3 id="代码">代码：</h3>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+int main()
+{
+	ios::sync_with_stdio(0);	//流优化 
+	int n;
+	
+	while(cin&gt;&gt;n &amp;&amp; n!=0)	//读入数据 
+	{
+		int a[n];
+		
+		for(int i=0;i&lt;n;i++)
+			cin&gt;&gt;a[i];
+		
+		sort(a,a+n);	//排序 
+		
+		for(int i=0;i&lt;n-1;i++)
+			cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;;
+		cout&lt;&lt;a[n-1];	//末尾不能有空格 
+		cout&lt;&lt;endl;
+	}
+
+
+
+	return 0;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 CF747A 【Display Size】 ]]></title>
         <id>https://wangdemao.github.io/post/ti-jie-cf747a-display-size/</id>
