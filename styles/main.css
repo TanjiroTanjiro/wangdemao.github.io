@@ -2243,7 +2243,7 @@ body {
     }body {
       cursor: default;
     }a {
-      cursor: url('/media/curs/链接选择.cur.cur'), pointer !important;
+      cursor: pointer;
     }input, textarea, code {
       cursor: text;
     }code > span.copy-code {
