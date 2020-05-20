@@ -2243,7 +2243,7 @@ body {
     }body {
       cursor: default;
     }a {
-      cursor: pointer;
+      cursor: url('/media/curs/C:\Users\wdm\Documents\Gridea\themes\next\assets\media\curs\链接选择.cur.cur'), pointer !important;
     }input, textarea, code {
       cursor: text;
     }code > span.copy-code {
