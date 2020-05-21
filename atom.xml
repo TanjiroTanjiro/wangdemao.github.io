@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangdemao.github.io</id>
     <title>Wang Demao&apos;s blog</title>
-    <updated>2020-05-21T03:13:43.956Z</updated>
+    <updated>2020-05-21T06:39:59.747Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangdemao.github.io"/>
     <link rel="self" href="https://wangdemao.github.io/atom.xml"/>
@@ -10,6 +10,39 @@
     <logo>https://wangdemao.github.io/images/avatar.png</logo>
     <icon>https://wangdemao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Wang Demao&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[10分钟搭建你自己的图灵机器人]]></title>
+        <id>https://wangdemao.github.io/post/turing-robot/</id>
+        <link href="https://wangdemao.github.io/post/turing-robot/">
+        </link>
+        <updated>2020-05-21T06:35:22.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1准备工作">1.准备工作</h2>
+<ul>
+<li>注册一个<a href="http://www.turingapi.com/">图灵机器人账号</a></li>
+</ul>
+<h2 id="2创建自己的机器人">2.创建自己的机器人</h2>
+<p><img src="https://wangdemao.github.io/post-images/1590043092083.jpg" alt="" loading="lazy"><br>
+点上面我圈出来的创建机器人（上边应该是没有机器人的，不过我已经进行了后续操作，所以有“小白”这个机器人），再弹出的对话框里按我的图片上说的填写：</p>
+<figure data-type="image" tabindex="1"><img src="https://wangdemao.github.io/post-images/1590043036364.jpg" alt="" loading="lazy"></figure>
+<p>创建完了以后点设置，进入设置界面，应该是这个样子的:</p>
+<figure data-type="image" tabindex="2"><img src="https://wangdemao.github.io/post-images/1590043028459.jpg" alt="" loading="lazy"></figure>
+<h2 id="3机器人配置">3.机器人配置：</h2>
+<h4 id="1终端设置">1.终端设置：</h4>
+<p><strong>这里非常重要！！！</strong>，如果你想把机器人放在你自己的网站上的话，下边有一个apikey,就是这里：</p>
+<figure data-type="image" tabindex="3"><img src="https://wangdemao.github.io/post-images/1590043139000.jpg" alt="" loading="lazy"></figure>
+<p>请牢记这个apikey，待会我们会用到。</p>
+<h4 id="2人物设置">2.人物设置：</h4>
+<p>这里填你的机器人的人物设置，比较好弄，我就不讲了。</p>
+<h2 id="3把机器人放在自己的网站上">3.把机器人放在自己的网站上：</h2>
+<p>这里我们用Gridea里的next主题做示范，具体请参考往期日报。<br>
+打开Gridea,进入主题里的自定义配置，找到“看板娘”栏目：</p>
+<figure data-type="image" tabindex="4"><img src="https://wangdemao.github.io/post-images/1590043178267.jpg" alt="" loading="lazy"></figure>
+<p>把是否开启看板娘和是否开启社交都打开，apiKey那里就填图灵机器人上的apikey。</p>
+<h2 id="使用效果">使用效果：</h2>
+<figure data-type="image" tabindex="5"><img src="https://wangdemao.github.io/post-images/1590043053689.jpg" alt="" loading="lazy"></figure>
+<p><s>欢迎大家来<a href="https://blog.wangdemao.cf/">我的博客</a>参观！</s></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 CF837A 【Text Volume】]]></title>
         <id>https://wangdemao.github.io/post/ti-jie-cf837a-text-volume/</id>
