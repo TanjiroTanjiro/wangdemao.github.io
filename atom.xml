@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangdemao.github.io</id>
     <title>Wang Demao&apos;s blog</title>
-    <updated>2020-05-21T06:39:59.747Z</updated>
+    <updated>2020-05-22T04:31:35.938Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangdemao.github.io"/>
     <link rel="self" href="https://wangdemao.github.io/atom.xml"/>
@@ -34,8 +34,7 @@
 <h4 id="2人物设置">2.人物设置：</h4>
 <p>这里填你的机器人的人物设置，比较好弄，我就不讲了。</p>
 <h2 id="3把机器人放在自己的网站上">3.把机器人放在自己的网站上：</h2>
-<p>这里我们用Gridea里的next主题做示范，具体请参考往期日报。<br>
-打开Gridea,进入主题里的自定义配置，找到“看板娘”栏目：</p>
+<p>这里我们用Gridea里的next主题做示范，注意：请一定要用Next主题，其他主题是没有这个栏目的！其他用途请自行百度。 打开Gridea,进入主题里的自定义配置，找到“看板娘”栏目：</p>
 <figure data-type="image" tabindex="4"><img src="https://wangdemao.github.io/post-images/1590043178267.jpg" alt="" loading="lazy"></figure>
 <p>把是否开启看板娘和是否开启社交都打开，apiKey那里就填图灵机器人上的apikey。</p>
 <h2 id="使用效果">使用效果：</h2>
