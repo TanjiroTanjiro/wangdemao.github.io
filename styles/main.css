@@ -2241,9 +2241,9 @@ body {
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
-      cursor: url('https://cdn.jsdelivr.net/gh/wangdemao/wangdemao.github.io@master/media/curs/default_normal.cur'), default;
+      cursor: default;
     }a {
-      cursor: url('https://cdn.jsdelivr.net/gh/wangdemao/wangdemao.github.io@master/media/curs/链接选择.cur'), pointer !important;
+      cursor: pointer;
     }input, textarea, code {
       cursor: text;
     }code > span.copy-code {
