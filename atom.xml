@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangdemao.cf</id>
     <title>Wang Demao&apos;s blog</title>
-    <updated>2020-05-31T00:59:10.456Z</updated>
+    <updated>2020-06-03T08:30:03.980Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangdemao.cf"/>
     <link rel="self" href="https://blog.wangdemao.cf/atom.xml"/>
@@ -10,6 +10,42 @@
     <logo>https://blog.wangdemao.cf/images/avatar.png</logo>
     <icon>https://blog.wangdemao.cf/favicon.ico</icon>
     <rights>All rights reserved 2020, Wang Demao&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 AT4124 【[ABC096A] Day of Takahashi】 ]]></title>
+        <id>https://blog.wangdemao.cf/post/ti-jie-at4124-abc096a-day-of-takahashi/</id>
+        <link href="https://blog.wangdemao.cf/post/ti-jie-at4124-abc096a-day-of-takahashi/">
+        </link>
+        <updated>2020-06-03T08:29:25.000Z</updated>
+        <content type="html"><![CDATA[<p>这道题大致思路是：</p>
+<ol>
+<li>最基本的情况下（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>月<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>日有高桥日），此时答案就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 。</li>
+<li>如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>&lt;</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y&lt;x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 的话，就说明<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>月<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>日没有高桥日，此时答案应该是基本情况减一。</li>
+</ol>
+<p>分析后，代码就很好写了：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	int x,y;
+	
+	cin&gt;&gt;x&gt;&gt;y;
+	
+	int ans=x;
+	
+	if(y&lt;x)
+		ans--;
+	
+	cout&lt;&lt;ans;
+	return 0;
+}
+
+</code></pre>
+<p>注：最近洛谷无法提交AT，下面是我在AT上的评测记录，AC了：</p>
+<p><a href="https://atcoder.jp/contests/abc096/submissions/13974641">评测记录</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[10分钟搭建你自己的图灵机器人]]></title>
         <id>https://blog.wangdemao.cf/post/turing-robot/</id>
