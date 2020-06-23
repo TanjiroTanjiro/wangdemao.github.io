@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>题解 CF747A 【Display Size】  | Wang Demao&#39;s blog</title>
+<title>搭建自己的图床 | Wang Demao&#39;s blog</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/wangdemao/wangdemao.github.io@master/favicon.ico?v=1592914824473">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wangdemao/wangdemao.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wangdemao/wangdemao.github.io@master/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="题解 CF747A 【Display Size】 " />
-  <meta name="keywords" content="题解,CF" />
+  <meta name="description" content="搭建自己的图床" />
+  <meta name="keywords" content="洛谷,日报" />
 </head>
 
 <body>
@@ -261,11 +261,14 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
+<li><a href="#0%E4%BC%98%E7%BC%BA%E7%82%B9">0.优缺点：</a></li>
+<li><a href="#1%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83">1.准备环境</a>
 <ul>
-<li><a href="#%E8%AF%9D%E4%B8%8D%E5%A4%9A%E8%AF%B4%E4%B8%8A%E4%BB%A3%E7%A0%81"><strong>话不多说，上代码</strong></a></li>
+<li><a href="#11%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94linux%E9%9D%A2%E6%9D%BF">1.1安装宝塔Linux面板</a></li>
 </ul>
 </li>
+<li><a href="#2%E5%AE%89%E8%A3%85chevereto%E5%9B%BE%E5%BA%8A">2.安装Chevereto图床</a></li>
+<li><a href="#%E6%95%88%E6%9E%9C">效果：</a></li>
 </ul>
 </li>
 </ul>
@@ -533,8 +536,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://blog.wangdemao.cf/post/solution-cf747a/">
-      题解 CF747A 【Display Size】 
+    <a class="post-title-link" href="https://blog.wangdemao.cf/post/build-an-picture/">
+      搭建自己的图床
     </a>
   </h1>
   <div class="post-meta">
@@ -542,7 +545,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-18</span>
+      <span>2020-06-23</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -551,14 +554,14 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://blog.wangdemao.cf/tag/ETEHaIbZW/">
-        <span>题解</span>
+      <a href="https://blog.wangdemao.cf/tag/1CFmpCoUI/">
+        <span>洛谷</span>
       </a>、
       
       
       
-      <a href="https://blog.wangdemao.cf/tag/tBdKgJan7X/">
-        <span>CF</span>
+      <a href="https://blog.wangdemao.cf/tag/tkqBRCmEA/">
+        <span>日报</span>
       </a>
       
       
@@ -567,17 +570,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>131<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>537<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/solution-cf747a/" data-flag-title="题解 CF747A 【Display Size】 " class="meta-item pc-show leancloud_visitors">
+    <span id="/post/build-an-picture/" data-flag-title="搭建自己的图床" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -586,40 +589,77 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>这是一道数学题，因为题目里说了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a\leq b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> ，可以推导出：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>≤</mo><msqrt><mi>n</mi></msqrt><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a\leq\sqrt{n}\leq b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathdefault">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
--10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
--50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
-35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
--221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
-s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
-s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> ，所以一个循环从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 到小枚举 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> ,如果  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi mathvariant="normal">%</mi><mi>a</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n\%a=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord mathdefault">n</span><span class="mord">%</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> ，即 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 能被 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 整除，输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi mathvariant="normal">/</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">n/a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord">/</span><span class="mord mathdefault">a</span></span></span></span> 即可。</p>
-<hr>
-<h3 id="话不多说上代码"><strong>话不多说，上代码</strong></h3>
-<pre><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;cmath&gt;   //数学库
-
-using namespace std;
-int main()
-{
-	int n;
-	
-	cin&gt;&gt;n;
-	
-	for(int i=sqrt(n);i&gt;=1;i--)
-	{
-		if(n%i==0)
-		{
-			cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;n/i;
-			return 0;
-		}
-	}
-
-
-
-	return 0;
+              <h2 id="0优缺点">0.优缺点：</h2>
+<p><strong>优点：</strong></p>
+<ul>
+<li>图片大小永远不受限（只要你的硬盘够大）</li>
+<li>图片无水印</li>
+<li>搭建方便</li>
+<li>……</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>需要保证服务器<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>7</mn><mo>×</mo><mn>24</mn></mrow><annotation encoding="application/x-tex">7\times24</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">4</span></span></span></span>小时开机</li>
+<li>...</li>
+</ul>
+<h2 id="1准备环境">1.准备环境</h2>
+<p>看完这么多优点，你是不是也想要一个呢？接下来我们就步入正题，开始搭建啦！</p>
+<p>笔者用的是云服务器，Ubuntu 16.04.1 LTS(Py3.7.4)系统。</p>
+<h3 id="11安装宝塔linux面板">1.1安装宝塔Linux面板</h3>
+<p>宝塔是一个很好用的面板，首先，在终端输入：</p>
+<pre><code>wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh
+</code></pre>
+<p>点y,安装成功后应该会出现这些信息：</p>
+<figure data-type="image" tabindex="1"><img src="https://blog.wangdemao.cf/post-images/1592914795067.png" alt="" loading="lazy"></figure>
+<p>按给出的网址，账号，密码登录到宝塔。</p>
+<p>打开后会弹出一个弹窗，按图填：</p>
+<figure data-type="image" tabindex="2"><img src="https://blog.wangdemao.cf/post-images/1592914775171.png" alt="" loading="lazy"></figure>
+<p>这段时间比较长，可以先休息一会，大约在30分钟到两小时左右，安装完成后，点击侧边栏中的网站一项，点添加站点，要特别注意数据库要创建，字符集是utf8mb4,剩下的内容比较简单，我就不说了。</p>
+<figure data-type="image" tabindex="3"><img src="https://blog.wangdemao.cf/post-images/1592914741259.png" alt="" loading="lazy"></figure>
+<p>打开你的网站，如果出现一下界面，就说明创建成功啦：</p>
+<figure data-type="image" tabindex="4"><img src="https://blog.wangdemao.cf/post-images/1592914718214.png" alt="" loading="lazy"></figure>
+<h2 id="2安装chevereto图床">2.安装Chevereto图床</h2>
+<p>在宝塔中，点击文件，进入你的网站根目录，把所有的文件都删掉。</p>
+<figure data-type="image" tabindex="5"><img src="https://blog.wangdemao.cf/post-images/1592914697682.png" alt="" loading="lazy"></figure>
+<p>在GitHub上把<a href="https://github.com/Chevereto/Chevereto-Free">Chevereto</a>的源代码下载下来，全部放到根目录下。</p>
+<p>之后，右键点击你的目录文件夹，选权限，给777权限，别忘了点应用到子目录。</p>
+<figure data-type="image" tabindex="6"><img src="https://blog.wangdemao.cf/post-images/1592914664050.png" alt="" loading="lazy"></figure>
+<p>然后在侧边栏点网站-&gt;设置-&gt;配置文件，在最后一个大括号前加入以下代码：</p>
+<pre><code># Disable access to .ht* files
+location ~ /\.ht {
+	deny all;
 }
 
+# Disable access to sensitive files in app path
+location ~ /(app|content|lib)/.*\.(po|php|lock|sql)$ {
+   deny all;
+}
+
+# Disable log on not found images + image replacement
+location ~* (jpe?g|png|gif) {
+	log_not_found off;
+	error_page 404 /content/images/system/default/404.gif;
+}
+
+# Enable CORS header (needed for CDN)
+location ~* \.(ttf|ttc|otf|eot|woff|woff2|css|js)$ {
+	add_header Access-Control-Allow-Origin &quot;*&quot;;
+}
+
+# Force serve upload path as static content (match your upload folder if needed)
+location /images {}
+
+# Route dynamic request to index.php
+location / {
+	try_files $uri $uri/ /index.php?$query_string;
+}
+ 
 </code></pre>
+<p>出现以下内容就说明安装成功了：</p>
+<figure data-type="image" tabindex="7"><img src="https://blog.wangdemao.cf/post-images/1592914636442.png" alt="" loading="lazy"></figure>
+<p>剩下的就比较简单了，我就不说了。</p>
+<h2 id="效果">效果：</h2>
+<figure data-type="image" tabindex="8"><img src="https://blog.wangdemao.cf/post-images/1592914617956.png" alt="" loading="lazy"></figure>
 
             </div>
             
@@ -631,7 +671,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://blog.wangdemao.cf/post/solution-cf747a/" title="题解 CF747A 【Display Size】 ">https://blog.wangdemao.cf/post/solution-cf747a/</a>
+      <a href="https://blog.wangdemao.cf/post/build-an-picture/" title="搭建自己的图床">https://blog.wangdemao.cf/post/build-an-picture/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -640,23 +680,19 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://blog.wangdemao.cf/tag/ETEHaIbZW/"># 题解</a>
+      <a href="https://blog.wangdemao.cf/tag/1CFmpCoUI/"># 洛谷</a>
     
-      <a href="https://blog.wangdemao.cf/tag/tBdKgJan7X/"># CF</a>
+      <a href="https://blog.wangdemao.cf/tag/tkqBRCmEA/"># 日报</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="题解 UVA11462 【Age Sort】 " href="https://blog.wangdemao.cf/post/solution-uva11462/">题解 UVA11462 【Age Sort】 </a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="题解 UVA11462 【Age Sort】 " href="https://blog.wangdemao.cf/post/solution-uva11462/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="用蒙特卡洛模拟算π" href="https://blog.wangdemao.cf/post/yong-meng-te-qia-luo-mo-ni-suan-p/">用蒙特卡洛模拟算π</a>
-        <a class="nav-mobile-next" title="用蒙特卡洛模拟算π" href="https://blog.wangdemao.cf/post/yong-meng-te-qia-luo-mo-ni-suan-p/">下一篇</a>
+        <a class="nav-pc-next" title="题解 P6337 【[COCI2007-2008#2] CRNE】" href="https://blog.wangdemao.cf/post/solution-p6337/">题解 P6337 【[COCI2007-2008#2] CRNE】</a>
+        <a class="nav-mobile-next" title="题解 P6337 【[COCI2007-2008#2] CRNE】" href="https://blog.wangdemao.cf/post/solution-p6337/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

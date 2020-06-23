@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangdemao.cf</id>
     <title>Wang Demao&apos;s blog</title>
-    <updated>2020-06-23T12:08:38.604Z</updated>
+    <updated>2020-06-23T12:20:26.814Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangdemao.cf"/>
     <link rel="self" href="https://blog.wangdemao.cf/atom.xml"/>
@@ -10,6 +10,85 @@
     <logo>https://blog.wangdemao.cf/images/avatar.png</logo>
     <icon>https://blog.wangdemao.cf/favicon.ico</icon>
     <rights>All rights reserved 2020, Wang Demao&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[搭建自己的图床]]></title>
+        <id>https://blog.wangdemao.cf/post/build-an-picture/</id>
+        <link href="https://blog.wangdemao.cf/post/build-an-picture/">
+        </link>
+        <updated>2020-06-23T12:16:11.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="0优缺点">0.优缺点：</h2>
+<p><strong>优点：</strong></p>
+<ul>
+<li>图片大小永远不受限（只要你的硬盘够大）</li>
+<li>图片无水印</li>
+<li>搭建方便</li>
+<li>……</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>需要保证服务器<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>7</mn><mo>×</mo><mn>24</mn></mrow><annotation encoding="application/x-tex">7\times24</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">4</span></span></span></span>小时开机</li>
+<li>...</li>
+</ul>
+<h2 id="1准备环境">1.准备环境</h2>
+<p>看完这么多优点，你是不是也想要一个呢？接下来我们就步入正题，开始搭建啦！</p>
+<p>笔者用的是云服务器，Ubuntu 16.04.1 LTS(Py3.7.4)系统。</p>
+<h3 id="11安装宝塔linux面板">1.1安装宝塔Linux面板</h3>
+<p>宝塔是一个很好用的面板，首先，在终端输入：</p>
+<pre><code>wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh
+</code></pre>
+<p>点y,安装成功后应该会出现这些信息：</p>
+<figure data-type="image" tabindex="1"><img src="https://blog.wangdemao.cf/post-images/1592914795067.png" alt="" loading="lazy"></figure>
+<p>按给出的网址，账号，密码登录到宝塔。</p>
+<p>打开后会弹出一个弹窗，按图填：</p>
+<figure data-type="image" tabindex="2"><img src="https://blog.wangdemao.cf/post-images/1592914775171.png" alt="" loading="lazy"></figure>
+<p>这段时间比较长，可以先休息一会，大约在30分钟到两小时左右，安装完成后，点击侧边栏中的网站一项，点添加站点，要特别注意数据库要创建，字符集是utf8mb4,剩下的内容比较简单，我就不说了。</p>
+<figure data-type="image" tabindex="3"><img src="https://blog.wangdemao.cf/post-images/1592914741259.png" alt="" loading="lazy"></figure>
+<p>打开你的网站，如果出现一下界面，就说明创建成功啦：</p>
+<figure data-type="image" tabindex="4"><img src="https://blog.wangdemao.cf/post-images/1592914718214.png" alt="" loading="lazy"></figure>
+<h2 id="2安装chevereto图床">2.安装Chevereto图床</h2>
+<p>在宝塔中，点击文件，进入你的网站根目录，把所有的文件都删掉。</p>
+<figure data-type="image" tabindex="5"><img src="https://blog.wangdemao.cf/post-images/1592914697682.png" alt="" loading="lazy"></figure>
+<p>在GitHub上把<a href="https://github.com/Chevereto/Chevereto-Free">Chevereto</a>的源代码下载下来，全部放到根目录下。</p>
+<p>之后，右键点击你的目录文件夹，选权限，给777权限，别忘了点应用到子目录。</p>
+<figure data-type="image" tabindex="6"><img src="https://blog.wangdemao.cf/post-images/1592914664050.png" alt="" loading="lazy"></figure>
+<p>然后在侧边栏点网站-&gt;设置-&gt;配置文件，在最后一个大括号前加入以下代码：</p>
+<pre><code># Disable access to .ht* files
+location ~ /\.ht {
+	deny all;
+}
+
+# Disable access to sensitive files in app path
+location ~ /(app|content|lib)/.*\.(po|php|lock|sql)$ {
+   deny all;
+}
+
+# Disable log on not found images + image replacement
+location ~* (jpe?g|png|gif) {
+	log_not_found off;
+	error_page 404 /content/images/system/default/404.gif;
+}
+
+# Enable CORS header (needed for CDN)
+location ~* \.(ttf|ttc|otf|eot|woff|woff2|css|js)$ {
+	add_header Access-Control-Allow-Origin &quot;*&quot;;
+}
+
+# Force serve upload path as static content (match your upload folder if needed)
+location /images {}
+
+# Route dynamic request to index.php
+location / {
+	try_files $uri $uri/ /index.php?$query_string;
+}
+ 
+</code></pre>
+<p>出现以下内容就说明安装成功了：</p>
+<figure data-type="image" tabindex="7"><img src="https://blog.wangdemao.cf/post-images/1592914636442.png" alt="" loading="lazy"></figure>
+<p>剩下的就比较简单了，我就不说了。</p>
+<h2 id="效果">效果：</h2>
+<figure data-type="image" tabindex="8"><img src="https://blog.wangdemao.cf/post-images/1592914617956.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 P6337 【[COCI2007-2008#2] CRNE】]]></title>
         <id>https://blog.wangdemao.cf/post/solution-p6337/</id>
