@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangdemao.cf</id>
     <title>Wang Demao&apos;s blog</title>
-    <updated>2020-06-05T07:32:40.384Z</updated>
+    <updated>2020-06-23T12:08:38.604Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangdemao.cf"/>
     <link rel="self" href="https://blog.wangdemao.cf/atom.xml"/>
@@ -10,6 +10,44 @@
     <logo>https://blog.wangdemao.cf/images/avatar.png</logo>
     <icon>https://blog.wangdemao.cf/favicon.ico</icon>
     <rights>All rights reserved 2020, Wang Demao&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 P6337 【[COCI2007-2008#2] CRNE】]]></title>
+        <id>https://blog.wangdemao.cf/post/solution-p6337/</id>
+        <link href="https://blog.wangdemao.cf/post/solution-p6337/">
+        </link>
+        <updated>2020-06-23T12:06:46.000Z</updated>
+        <content type="html"><![CDATA[<p>首先，如果要让切的块最多，横着切的刀数和竖着切的刀数相差应该越少越好，因此我们得到了以下结论：</p>
+<ul>
+<li>如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 是偶数，横着切的刀数和竖着切的刀数都是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mi>n</mi><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{n}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.040392em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+<li>如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 是偶数，横着切的刀数是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mi>n</mi><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{n}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.040392em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> ，竖着切的刀数是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mi>n</mi><mn>2</mn></mfrac><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\frac{n}{2}+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.040392em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
+<li>切的块数是 (横着切的刀数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> (竖着切的刀数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>)</li>
+</ul>
+<p>知道了这些，代码就很好写了：</p>
+<pre><code class="language-cpp">//By: Luogu@wangdemao(308854)
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	int n;
+	
+	cin&gt;&gt;n;
+	
+	if(n%2==0)
+	{
+		cout&lt;&lt;(n/2+1)*(n/2+1);
+	}
+	else
+	{
+		cout&lt;&lt;(n/2+1)*(n/2+2);
+	}
+	return 0;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[大事祭]]></title>
         <id>https://blog.wangdemao.cf/post/da-shi-ji/</id>
@@ -58,8 +96,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[题解 CF837A 【Text Volume】]]></title>
-        <id>https://blog.wangdemao.cf/post/ti-jie-cf837a-text-volume/</id>
-        <link href="https://blog.wangdemao.cf/post/ti-jie-cf837a-text-volume/">
+        <id>https://blog.wangdemao.cf/post/solution-cf837a/</id>
+        <link href="https://blog.wangdemao.cf/post/solution-cf837a/">
         </link>
         <updated>2020-05-21T03:13:14.000Z</updated>
         <content type="html"><![CDATA[<h2 id="1思路">1.思路</h2>
@@ -131,8 +169,8 @@ void findcap(string t,int no)
     </entry>
     <entry>
         <title type="html"><![CDATA[题解 UVA11462 【Age Sort】 ]]></title>
-        <id>https://blog.wangdemao.cf/post/ti-jie-uva11462-age-sort/</id>
-        <link href="https://blog.wangdemao.cf/post/ti-jie-uva11462-age-sort/">
+        <id>https://blog.wangdemao.cf/post/solution-uva11462/</id>
+        <link href="https://blog.wangdemao.cf/post/solution-uva11462/">
         </link>
         <updated>2020-05-18T07:25:14.000Z</updated>
         <content type="html"><![CDATA[<p>这题几个坑点（没通过的同学请注意）：</p>
@@ -178,8 +216,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[题解 CF747A 【Display Size】 ]]></title>
-        <id>https://blog.wangdemao.cf/post/ti-jie-cf747a-display-size/</id>
-        <link href="https://blog.wangdemao.cf/post/ti-jie-cf747a-display-size/">
+        <id>https://blog.wangdemao.cf/post/solution-cf747a/</id>
+        <link href="https://blog.wangdemao.cf/post/solution-cf747a/">
         </link>
         <updated>2020-05-18T07:22:49.000Z</updated>
         <content type="html"><![CDATA[<p>这是一道数学题，因为题目里说了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a\leq b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> ，可以推导出：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>≤</mo><msqrt><mi>n</mi></msqrt><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a\leq\sqrt{n}\leq b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathdefault">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
