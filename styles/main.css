@@ -603,7 +603,7 @@ pre > span.copy-code:hover {
 }
 .post-footer .post-eof {
   display: block;
-  margin: 80px auto 60px;
+  margin: 40px auto 30px;
   width: 8%;
   height: 1px;
   background: #ccc;
@@ -635,9 +635,6 @@ pre > span.copy-code:hover {
 @media (max-width: 767px) {
   .post-title {
     font-size: 22px !important;
-  }
-  .pc-show {
-    display: none;
   }
 }
 @media (min-width: 992px) {
@@ -1406,9 +1403,6 @@ pre > span.copy-code:hover {
   font-size: 2em;
   margin: 0.67em 0;
 }
-.next-md-body img {
-  border-style: none;
-}
 .next-md-body code,
 .next-md-body kbd,
 .next-md-body pre {
@@ -1770,9 +1764,10 @@ pre > span.copy-code:hover {
   background-color: #f6f8fa;
 }
 .next-md-body img {
-  background-color: #fff;
+  background-color: transparent;
   box-sizing: content-box;
   max-width: 100%;
+  border-style: none;
 }
 .next-md-body img[align=right] {
   padding-left: 20px;
@@ -2114,9 +2109,6 @@ pre > span.copy-code:hover {
 }
 body {
       background-color: #eee;
-    }
-    .nav-toggle .line {
-      background-color: #eee !important;
     }.header {
         width: 960px;
         margin: 0 auto;
@@ -2174,6 +2166,9 @@ body {
     .next-md-body a:hover, .friends-box a:hover {
       color: #222;
       border-bottom-color: #222;
+    }
+    .nav-toggle .line {
+      background-color: undefined !important;
     }
       .nav-item a {
         color:  #555;
