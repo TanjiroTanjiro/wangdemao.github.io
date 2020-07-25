@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangdemao.cf</id>
     <title>Wang Demao&apos;s blog</title>
-    <updated>2020-07-24T02:24:28.557Z</updated>
+    <updated>2020-07-25T09:35:17.295Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangdemao.cf"/>
     <link rel="self" href="https://blog.wangdemao.cf/atom.xml"/>
@@ -10,6 +10,222 @@
     <logo>https://blog.wangdemao.cf/images/avatar.png</logo>
     <icon>https://blog.wangdemao.cf/favicon.ico</icon>
     <rights>All rights reserved 2020, Wang Demao&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 UVA10323 【Factorial! You Must be Kidding!!!】]]></title>
+        <id>https://blog.wangdemao.cf/post/solution-uva10323/</id>
+        <link href="https://blog.wangdemao.cf/post/solution-uva10323/">
+        </link>
+        <updated>2020-07-25T09:34:32.000Z</updated>
+        <content type="html"><![CDATA[<p>题意：</p>
+<p>给定你一个整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> ,如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>!</mo><mo>&gt;</mo><mn>6227020800</mn></mrow><annotation encoding="application/x-tex">n!&gt;6227020800</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">2</span><span class="mord">2</span><span class="mord">7</span><span class="mord">0</span><span class="mord">2</span><span class="mord">0</span><span class="mord">8</span><span class="mord">0</span><span class="mord">0</span></span></span></span>的话，输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">Overflow!</mtext></mrow><annotation encoding="application/x-tex">\texttt{Overflow!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">Overflow!</span></span></span></span></span>,如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>!</mo><mo>&lt;</mo><mn>10000</mn></mrow><annotation encoding="application/x-tex">n!&lt;10000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span>的话，输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">Underflow!</mtext></mrow><annotation encoding="application/x-tex">\texttt{Underflow!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">Underflow!</span></span></span></span></span></p>
+<p>这道题看起来很简单，但是有很多坑点：</p>
+<ol>
+<li>这道题 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 是有可能会有负数的</li>
+<li>输出完一定要换行，否则会<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">Presentation</mtext><mtext> </mtext><mtext mathvariant="monospace">Error</mtext></mrow><annotation encoding="application/x-tex">\texttt{Presentation Error}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">Presentation Error</span></span></span></span></span></li>
+</ol>
+<p>当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为负数的情况下，要用以下方法解决：</p>
+<p>$ n \mod{2} =0 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">的</mi><mi mathvariant="normal">情</mi><mi mathvariant="normal">况</mi><mi mathvariant="normal">下</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">输</mi><mi mathvariant="normal">出</mi></mrow><annotation encoding="application/x-tex">的情况下，输出</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">情</span><span class="mord cjk_fallback">况</span><span class="mord cjk_fallback">下</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">输</span><span class="mord cjk_fallback">出</span></span></span></span>\texttt{Underflow!}$</p>
+<p>$ n \mod{2} =1 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">的</mi><mi mathvariant="normal">情</mi><mi mathvariant="normal">况</mi><mi mathvariant="normal">下</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">输</mi><mi mathvariant="normal">出</mi></mrow><annotation encoding="application/x-tex">的情况下，输出</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">情</span><span class="mord cjk_fallback">况</span><span class="mord cjk_fallback">下</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">输</span><span class="mord cjk_fallback">出</span></span></span></span>\texttt{Overflow!}$</p>
+<p>代码：</p>
+<pre><code class="language-cpp">//By: Luogu@wangdemao(308854)
+#include &lt;iostream&gt;
+
+using std::cin;
+using std::cout;
+using std::cerr;
+using std::min;
+using std::max;
+
+
+int main()
+{
+	int n;
+	while(cin&gt;&gt;n)
+	{
+		if(n&lt;0)
+		{
+			if(n%2==0)
+				cout&lt;&lt;&quot;Underflow!&quot;;
+			else
+				cout&lt;&lt;&quot;Overflow!&quot;;
+			cout&lt;&lt;endl;
+		}
+
+		else
+		{
+			long long ans=1;
+
+			for(int i=1; i&lt;=n; i++)
+			{
+				ans*=i;
+				if(ans&gt;6227020800)
+				{
+					//cout&lt;&lt;&quot;Overflow!&quot;;
+					break ;
+				}
+			}
+			if(ans&lt;10000)
+				cout&lt;&lt;&quot;Underflow!&quot;;
+			else if(ans&gt;6227020800)
+				cout&lt;&lt;&quot;Overflow!&quot;;
+			else
+				cout&lt;&lt;ans;
+
+			cout&lt;&lt;std::endl;
+		}
+
+	}
+	return 0;
+}
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[题解 P2440 【木材加工】]]></title>
+        <id>https://blog.wangdemao.cf/post/solution-p2440/</id>
+        <link href="https://blog.wangdemao.cf/post/solution-p2440/">
+        </link>
+        <updated>2020-07-25T09:33:58.000Z</updated>
+        <content type="html"><![CDATA[<p>这是一道二分答案题，熟悉二分答案的大佬可以跳过下面一段：</p>
+<hr>
+<h3 id="二分答案介绍">二分答案介绍：</h3>
+<p>二分答案就是说用 <strong>二分</strong> 的方法枚举答案，具体请看例子：</p>
+<p>我现在在一堆木头中找最长的，我可以用一下方法：</p>
+<ol>
+<li>最找到可行范围内最中间的数,用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>e</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">check</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>函数判断他是否可行，分两种情况：</li>
+</ol>
+<ul>
+<li>如果可行（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>e</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">check</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>函数返回<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>）标记，返回 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>a</mi><mi>z</mi><mi>h</mi><mi>a</mi><mi>o</mi><mo>(</mo><mi>m</mi><mi>i</mi><mi>d</mi><mo separator="true">,</mo><mi>r</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">chazhao(mid,r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault">o</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span></span></span></span></li>
+<li>如果不可行（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>e</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">check</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>函数返回<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>）标记，返回 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>a</mi><mi>z</mi><mi>h</mi><mi>a</mi><mi>o</mi><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>m</mi><mi>i</mi><mi>d</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">chazhao(l,mid)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault">o</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+<p>表如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">1</th>
+<th style="text-align:right">2</th>
+<th style="text-align:right">3</th>
+<th style="text-align:right">4</th>
+<th style="text-align:right">5</th>
+<th style="text-align:right">6</th>
+<th style="text-align:right">7</th>
+<th style="text-align:right">8</th>
+<th style="text-align:right">9</th>
+<th style="text-align:right">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="代码">代码：</h3>
+<h4 id="1check-函数">1.<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>e</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">check</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 函数</h4>
+<pre><code>bool check(int len)
+{
+	int cnt=0;
+	
+	for(int i=0;i&lt;n;i++)
+	{
+		cnt+=a[i]/len;
+	}
+	
+	if(cnt&gt;=k)
+		return true;
+	
+	return false;
+}
+return 0;
+}
+</code></pre>
+<p>原理是：长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>e</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">len</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span></span></span></span> 的情况下如果可以分到的段数比 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 多，返回<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mi>r</mi><mi>u</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">true</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord mathdefault">e</span></span></span></span>,否则返回 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mi>a</mi><mi>l</mi><mi>s</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">false</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span></span></span></span></p>
+<hr>
+<h4 id="2chazhao-函数">2.<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>a</mi><mi>z</mi><mi>h</mi><mi>a</mi><mi>o</mi></mrow><annotation encoding="application/x-tex">chazhao</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault">o</span></span></span></span> 函数</h4>
+<pre><code>int chazhao(int l,int r)
+{
+	if(r-l&lt;=1){
+		if(check(r))
+			return r;
+		if(check(l))
+			return l;
+		return 0;
+	}
+	
+	int mid=(r+l)/2;
+	
+	if(check(mid))
+		return chazhao(mid,r);
+	else
+		return chazhao(l,mid);
+}
+</code></pre>
+<p>逻辑是：</p>
+<ul>
+<li>当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>−</mo><mi>l</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r-l&lt;1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 时：</li>
+</ul>
+<p>如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>e</mi><mi>c</mi><mi>k</mi><mo>(</mo><mi>r</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">check(r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span></span></span></span>可以的话，返回 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>,如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>h</mi><mi>e</mi><mi>c</mi><mi>k</mi><mo>(</mo><mi>l</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">check(l)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">)</span></span></span></span>可以的话，返回 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>,否则返回 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</p>
+<p>注意：这里一定要先判断 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>,再判断 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>，因为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>&gt;</mo><mi>l</mi></mrow><annotation encoding="application/x-tex">r&gt;l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>,要先判断大的。</p>
+<ul>
+<li>否则先算出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">mid</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span></span></span></span> ,然后按上面的逻辑算。</li>
+</ul>
+<p>主函数没有技术含量，可以自己写，检验自己是否真正会了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[题解 CF1145F 【Neat Words】]]></title>
+        <id>https://blog.wangdemao.cf/post/solution-cf1145f/</id>
+        <link href="https://blog.wangdemao.cf/post/solution-cf1145f/">
+        </link>
+        <updated>2020-07-25T09:33:21.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="思路">思路：</h2>
+<ul>
+<li>先定义一个表,代表每个字母是由曲线还是直线构成的，曲线为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> ,直线为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 。</li>
+<li>把字符串放到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>t</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">string</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span> 数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 里存起来，如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>a</mi><mi>s</mi><msub><mi>h</mi><mrow><msub><mi>a</mi><mi>i</mi></msub><msup><mo>−</mo><mo mathvariant="normal">′</mo></msup><msup><mi>A</mi><mo mathvariant="normal">′</mo></msup></mrow></msub><mi mathvariant="normal">≠</mi><mi>h</mi><mi>a</mi><mi>s</mi><msub><mi>h</mi><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mo>−</mo><mo mathvariant="normal">′</mo></msup><msup><mi>A</mi><mo mathvariant="normal">′</mo></msup></mrow></msub></mrow><annotation encoding="application/x-tex">hash_{a_i-&#x27;A&#x27;} \neq hash_{a_{i-1}-&#x27;A&#x27;}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9445399999999999em;vertical-align:-0.2501em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight"><span class="mbin mtight">−</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828285714285715em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight"><span class="mord mathdefault mtight">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828285714285715em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2501em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.986205em;vertical-align:-0.291765em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328331em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32808571428571426em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.20252142857142857em;"><span></span></span></span></span></span></span><span class="mbin mtight"><span class="mbin mtight">−</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828285714285715em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight"><span class="mord mathdefault mtight">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828285714285715em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.291765em;"><span></span></span></span></span></span></span></span></span></span> 输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>O</mi></mrow><annotation encoding="application/x-tex">NO</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span></span></span></span>，结束程序。</li>
+<li>在循环结束后，输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi><mi>E</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">YES</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>。</li>
+</ul>
+<h2 id="代码">代码：</h2>
+<pre><code class="language-cpp">//By: Luogu@wangdemao(308854)
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool biao[26]={1,0,0,0,1,1,0,1,1,0,1,1,1,1,0,0,0,0,0,1,0,1,1,1,1,1};
+
+int main()
+{
+	string a;
+	
+	cin&gt;&gt;a;
+	
+	for(int i=1;i&lt;a.size();i++)
+	{
+		if(biao[a[i]-'A']!=biao[a[i-1]-'A'])	
+		{
+			cout&lt;&lt;&quot;NO&quot;;	
+			return 0;		
+		}
+	}
+	
+	cout&lt;&lt;&quot;YES&quot;;
+	
+	return 0;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[搭建自己的图床]]></title>
         <id>https://blog.wangdemao.cf/post/build-an-picture/</id>
@@ -333,65 +549,6 @@ int main()
 }
 
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[用蒙特卡洛模拟算π]]></title>
-        <id>https://blog.wangdemao.cf/post/yong-meng-te-qia-luo-mo-ni-suan-p/</id>
-        <link href="https://blog.wangdemao.cf/post/yong-meng-te-qia-luo-mo-ni-suan-p/">
-        </link>
-        <updated>2020-05-17T06:29:35.000Z</updated>
-        <content type="html"><![CDATA[<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="grey"><mi mathvariant="normal">“</mi><mi mathvariant="normal">相</mi><mi mathvariant="normal">信</mi><mi mathvariant="normal">大</mi><mi mathvariant="normal">家</mi><mi mathvariant="normal">都</mi><mi mathvariant="normal">知</mi><mi mathvariant="normal">道</mi><mi>π</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">但</mi><mi mathvariant="normal">怎</mi><mi mathvariant="normal">么</mi><mi mathvariant="normal">用</mi><mi>C</mi><mo>+</mo><mo>+</mo><mi mathvariant="normal">算</mi><mi mathvariant="normal">出</mi><mi>π</mi><mi mathvariant="normal">呢</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">今</mi><mi mathvariant="normal">天</mi><mi mathvariant="normal">我</mi><mi mathvariant="normal">们</mi><mi mathvariant="normal">就</mi><mi mathvariant="normal">来</mi><mi mathvariant="normal">探</mi><mi mathvariant="normal">讨</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">下</mi><mi mathvariant="normal">。</mi><mi mathvariant="normal">”</mi></mstyle></mrow><annotation encoding="application/x-tex">{\color{grey}“ 相信大家都知道π，但怎么用C++算出π呢，今天我们就来探讨一下。”}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord" style="color:grey;">“</span><span class="mord cjk_fallback" style="color:grey;">相</span><span class="mord cjk_fallback" style="color:grey;">信</span><span class="mord cjk_fallback" style="color:grey;">大</span><span class="mord cjk_fallback" style="color:grey;">家</span><span class="mord cjk_fallback" style="color:grey;">都</span><span class="mord cjk_fallback" style="color:grey;">知</span><span class="mord cjk_fallback" style="color:grey;">道</span><span class="mord mathdefault" style="margin-right:0.03588em;color:grey;">π</span><span class="mord cjk_fallback" style="color:grey;">，</span><span class="mord cjk_fallback" style="color:grey;">但</span><span class="mord cjk_fallback" style="color:grey;">怎</span><span class="mord cjk_fallback" style="color:grey;">么</span><span class="mord cjk_fallback" style="color:grey;">用</span><span class="mord mathdefault" style="margin-right:0.07153em;color:grey;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin" style="color:grey;">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord" style="color:grey;">+</span><span class="mord cjk_fallback" style="color:grey;">算</span><span class="mord cjk_fallback" style="color:grey;">出</span><span class="mord mathdefault" style="margin-right:0.03588em;color:grey;">π</span><span class="mord cjk_fallback" style="color:grey;">呢</span><span class="mord cjk_fallback" style="color:grey;">，</span><span class="mord cjk_fallback" style="color:grey;">今</span><span class="mord cjk_fallback" style="color:grey;">天</span><span class="mord cjk_fallback" style="color:grey;">我</span><span class="mord cjk_fallback" style="color:grey;">们</span><span class="mord cjk_fallback" style="color:grey;">就</span><span class="mord cjk_fallback" style="color:grey;">来</span><span class="mord cjk_fallback" style="color:grey;">探</span><span class="mord cjk_fallback" style="color:grey;">讨</span><span class="mord cjk_fallback" style="color:grey;">一</span><span class="mord cjk_fallback" style="color:grey;">下</span><span class="mord cjk_fallback" style="color:grey;">。</span><span class="mord" style="color:grey;">”</span></span></span></span></span></p>
-<h2 id="01算法">01.算法</h2>
-<p>相信大家都知道下图中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">方</mi><mi mathvariant="normal">块</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">面</mi><mi mathvariant="normal">积</mi><mo>:</mo><mi mathvariant="normal">圆</mi><mi mathvariant="normal">圈</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">面</mi><mi mathvariant="normal">积</mi><mo>=</mo><mn>4</mn><mo>:</mo><mi>π</mi></mrow><annotation encoding="application/x-tex">方块的面积:圆圈的面积=4:π</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">块</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">面</span><span class="mord cjk_fallback">积</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord cjk_fallback">圆</span><span class="mord cjk_fallback">圈</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">面</span><span class="mord cjk_fallback">积</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span></span></span></span>，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi><mo>=</mo><mi mathvariant="normal">圆</mi><mi mathvariant="normal">圈</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">面</mi><mi mathvariant="normal">积</mi><mo>÷</mo><mi mathvariant="normal">方</mi><mi mathvariant="normal">块</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">面</mi><mi mathvariant="normal">积</mi></mrow><annotation encoding="application/x-tex">π=圆圈的面积÷方块的面积</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">圆</span><span class="mord cjk_fallback">圈</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">面</span><span class="mord cjk_fallback">积</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">块</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">面</span><span class="mord cjk_fallback">积</span></span></span></span>×4,。</p>
-<figure data-type="image" tabindex="1"><img src="https://blog.wangdemao.cf/post-images/1589697019339.jpg" alt="" loading="lazy"></figure>
-<p>我们可以假设圆上有10000个点（数字越大，精度越高），只需要求出每个点和圆心的距离是否大于圆的半径就可以知道这个点是否在圆内，即：</p>
-<figure data-type="image" tabindex="2"><img src="https://blog.wangdemao.cf/post-images/1589702570909.jpg" alt="" loading="lazy"></figure>
-<h2 id="02代码实现">02.代码实现</h2>
-<p>现在，我们来说代码的具体实现。</p>
-<pre><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;cmath&gt;    //开根号要用到
-#include &lt;iomanip&gt;
-
-using namespace std;
-
-long double check(long double i,long double j,long double n)
-{
-  long double ans=sqrt(double(pow(abs(n/2.0-i),2)+pow(abs(n/2.0-j),2)));		//详见上面的公式 
-  
-  return ans;
-}
-
-int main()
-{
-  long double pai;
-  long double n,incircle=0,square,banjing;
-  
-  cout&lt;&lt;&quot;请输入模拟次数n: \n由于C++精度所限，无法算得太大\nn=________\b\b\b\b\b\b&quot;;    //输出提示信息 
-  cin&gt;&gt;n;		//输入数据 
-
-  square=n*n;
-  
-  for(long long i=1;i&lt;=n;i++)
-  {
-    for(long long j=1;j&lt;=n;j++)
-    {
-      if(check(i,j,n)&lt;=n/2.0)
-        incircle++;
-    }
-  }
-  
-  pai=((incircle/square)*4.0);		//算出结果 
-  
-  cout&lt;&lt;&quot;π≈&quot;&lt;&lt;fixed &lt;&lt;setprecision(10)&lt;&lt;pai;
-
-  return 0;
-}
-</code></pre>
-<p>结果：</p>
-<figure data-type="image" tabindex="3"><img src="https://blog.wangdemao.cf/post-images/1589697071256.jpg" alt="" loading="lazy"></figure>
-<p>注：由于C++精度问题，可能会有误差</p>
-<p>谢谢大家。</p>
 ]]></content>
     </entry>
 </feed>
