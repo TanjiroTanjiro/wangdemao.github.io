@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
-<title>10分钟搭建你自己的图灵机器人 | Wang Demao&#39;s blog</title>
+<title>题解 P5683 【[CSPJX2019]道路拆除】 | Wang Demao&#39;s blog</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/wangdemao/wangdemao.github.io@master/favicon.ico?v=1622272043399">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wangdemao/wangdemao.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wangdemao/wangdemao.github.io@master/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="10分钟搭建你自己的图灵机器人" />
-  <meta name="keywords" content="洛谷,日报,教程" />
+  <meta name="description" content="题解 P5683 【[CSPJX2019]道路拆除】" />
+  <meta name="keywords" content="洛谷,题解" />
 </head>
 
 <body>
@@ -246,17 +246,8 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#1%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">1.准备工作</a></li>
-<li><a href="#2%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA">2.创建自己的机器人</a></li>
-<li><a href="#3%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%85%8D%E7%BD%AE">3.机器人配置：</a><br>
-*
-<ul>
-<li><a href="#1%E7%BB%88%E7%AB%AF%E8%AE%BE%E7%BD%AE">1.终端设置：</a></li>
-<li><a href="#2%E4%BA%BA%E7%89%A9%E8%AE%BE%E7%BD%AE">2.人物设置：</a></li>
-</ul>
-</li>
-<li><a href="#3%E6%8A%8A%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%BE%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%AB%99%E4%B8%8A">3.把机器人放在自己的网站上：</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E6%95%88%E6%9E%9C">使用效果：</a></li>
+<li><a href="#part-1-%E5%88%86%E6%9E%90">Part 1 分析</a></li>
+<li><a href="#ac-code">AC Code</a></li>
 </ul>
 </li>
 </ul>
@@ -524,8 +515,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://blog.wangdemao.cf/post/turing-robot/">
-      10分钟搭建你自己的图灵机器人
+    <a class="post-title-link" href="https://blog.wangdemao.cf/post/solution-p5683/">
+      题解 P5683 【[CSPJX2019]道路拆除】
     </a>
   </h1>
   <div class="post-meta">
@@ -533,7 +524,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-21</span>
+      <span>2021-05-29</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -548,14 +539,8 @@
       
       
       
-      <a href="https://blog.wangdemao.cf/tag/tkqBRCmEA/">
-        <span>日报</span>
-      </a>、
-      
-      
-      
-      <a href="https://blog.wangdemao.cf/tag/Y1AJIRZxZj/">
-        <span>教程</span>
+      <a href="https://blog.wangdemao.cf/tag/ETEHaIbZW/">
+        <span>题解</span>
       </a>
       
       
@@ -564,17 +549,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>310<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>428<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/turing-robot/" data-flag-title="10分钟搭建你自己的图灵机器人" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/solution-p5683/" data-flag-title="题解 P5683 【[CSPJX2019]道路拆除】" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -583,29 +568,106 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="1准备工作">1.准备工作</h2>
-<ul>
-<li>注册一个<a href="http://www.turingapi.com/">图灵机器人账号</a></li>
-</ul>
-<h2 id="2创建自己的机器人">2.创建自己的机器人</h2>
-<p><img src="https://blog.wangdemao.cf/post-images/1590043092083.jpg" alt="" loading="lazy"><br>
-点上面我圈出来的创建机器人（上边应该是没有机器人的，不过我已经进行了后续操作，所以有“小白”这个机器人），再弹出的对话框里按我的图片上说的填写：</p>
-<figure data-type="image" tabindex="1"><img src="https://blog.wangdemao.cf/post-images/1590043036364.jpg" alt="" loading="lazy"></figure>
-<p>创建完了以后点设置，进入设置界面，应该是这个样子的:</p>
-<figure data-type="image" tabindex="2"><img src="https://blog.wangdemao.cf/post-images/1590043028459.jpg" alt="" loading="lazy"></figure>
-<h2 id="3机器人配置">3.机器人配置：</h2>
-<h4 id="1终端设置">1.终端设置：</h4>
-<p><strong>这里非常重要！！！</strong>，如果你想把机器人放在你自己的网站上的话，下边有一个apikey,就是这里：</p>
-<figure data-type="image" tabindex="3"><img src="https://blog.wangdemao.cf/post-images/1590043139000.jpg" alt="" loading="lazy"></figure>
-<p>请牢记这个apikey，待会我们会用到。</p>
-<h4 id="2人物设置">2.人物设置：</h4>
-<p>这里填你的机器人的人物设置，比较好弄，我就不讲了。</p>
-<h2 id="3把机器人放在自己的网站上">3.把机器人放在自己的网站上：</h2>
-<p>这里我们用Gridea里的next主题做示范，注意：请一定要用Next主题，其他主题是没有这个栏目的！其他用途请自行百度。 打开Gridea,进入主题里的自定义配置，找到“看板娘”栏目：</p>
-<figure data-type="image" tabindex="4"><img src="https://blog.wangdemao.cf/post-images/1590043178267.jpg" alt="" loading="lazy"></figure>
-<p>把是否开启看板娘和是否开启社交都打开，apiKey那里就填图灵机器人上的apikey。</p>
-<h2 id="使用效果">使用效果：</h2>
-<figure data-type="image" tabindex="5"><img src="https://blog.wangdemao.cf/post-images/1590043053689.jpg" alt="" loading="lazy"></figure>
+              <h2 id="part-1-分析">Part 1 分析</h2>
+<p>直接求删除几个点太难了，正难则反，我们可以考虑最少保留几条边。</p>
+<p>我们可以观察到，从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">s1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord">1</span></span></span></span> 及 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">s2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord">2</span></span></span></span> 必定属于以下两种情况之一：</p>
+<ol>
+<li>从点一直接到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">s1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord">1</span></span></span></span></li>
+<li>从点一到点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> ,再到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">s1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord">1</span></span></span></span></li>
+</ol>
+<p>而第一种情况可以归为第一种情况 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的一个特例，</p>
+<p>所以我们的思路就出来了：先用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">BFS</mtext></mrow><annotation encoding="application/x-tex">\texttt{BFS}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">BFS</span></span></span></span></span> 对 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">s1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord">1</span></span></span></span> , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">s2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord">2</span></span></span></span> 跑一遍单源最短路，</p>
+<p>然后求 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>a</mi><mi>n</mi><mi>s</mi><mo separator="true">,</mo><mi>d</mi><mi>i</mi><mi>s</mi><msub><mn>1</mn><mi>i</mi></msub><mo>+</mo><mi>d</mi><mi>i</mi><mi>s</mi><msub><mn>2</mn><mi>i</mi></msub><mo>+</mo><mi>d</mi><mi>i</mi><mi>s</mi><msub><mn>3</mn><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">min(ans,dis1_i+dis2_i+dis3_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><msub><mn>1</mn><mi>i</mi></msub><mo separator="true">,</mo><mi>d</mi><mi>i</mi><mi>s</mi><msub><mn>2</mn><mi>i</mi></msub><mo separator="true">,</mo><mi>d</mi><mi>i</mi><mi>s</mi><msub><mn>3</mn><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dis1_i , dis2_i , dis3_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 分别代表 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 的最短路 ， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">s1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord">1</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 的最短路 , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">s2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord">2</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 的最短路)</p>
+<h2 id="ac-code">AC Code</h2>
+<pre><code class="language-cpp">//By: Luogu@wangdemao(308854)
+#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int n,m,s1,s2,t1,t2,dis1[10000],dis2[10000],dis3[10000],visit[10000];
+vector&lt;int&gt; dian[10000];
+
+void bfs(int dis[],int from)
+{
+	queue&lt;int&gt; q;
+	
+	q.push(from);
+	
+	dis[from]=0;
+	memset(visit,0,sizeof(visit));
+	visit[from]=1;
+	
+	while(!q.empty())
+	{
+		int a=q.front();
+		q.pop();
+		visit[a]=1;		
+		for(int i=0;i&lt;diаn[a].size();i++)
+		{
+			int now=dian[a][i];
+			
+			if(dis[now]&gt;dis[a]+1)
+			{
+				dis[now]=dis[a]+1;
+				if(!visit[now])
+				{
+					q.push(now);
+					visit[now]=1;
+				}
+			}
+		}
+	}
+}
+
+int main()
+{
+	cin&gt;&gt;n&gt;&gt;m;
+	
+	for(int i=1;i&lt;=m;i++)
+	{
+		int x,y;
+		
+		cin&gt;&gt;x&gt;&gt;y;
+		dian[x].push_back(y);
+		dian[y].push_back(x);
+	}
+	
+	cin&gt;&gt;s1&gt;&gt;t1&gt;&gt;s2&gt;&gt;t2;
+	
+	memset(dis1,0x7f,sizeof(dis1));
+	memset(dis2,0x7f,sizeof(dis2));
+	memset(dis3,0x7f,sizeof(dis3));
+	
+	bfs(dis1,1);
+	bfs(dis2,s1);
+	bfs(dis3,s2);
+	
+	if(dis1[s1]&gt;t1 || dis1[s2]&gt;t2)
+	{
+		cout&lt;&lt;-1;
+		return 0;
+	}
+	
+	int аns=2147483647;
+	
+	for(int i=1;i&lt;=n;i++)
+	{
+		if(dis1[i]+dis2[i]&lt;=t1 &amp;&amp; dis1[i]+dis3[i]&lt;=t2)
+		{
+			ans=min(аns,dis1[i]+dis2[i]+dis3[i]);
+		}
+	}
+	
+	cout&lt;&lt;m-аns;
+	
+	return 0;
+}
+
+</code></pre>
 
             </div>
             
@@ -618,7 +680,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://blog.wangdemao.cf/post/turing-robot/" title="10分钟搭建你自己的图灵机器人">https://blog.wangdemao.cf/post/turing-robot/</a>
+      <a href="https://blog.wangdemao.cf/post/solution-p5683/" title="题解 P5683 【[CSPJX2019]道路拆除】">https://blog.wangdemao.cf/post/solution-p5683/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -629,23 +691,17 @@
     
       <a href="https://blog.wangdemao.cf/tag/1CFmpCoUI/"># 洛谷</a>
     
-      <a href="https://blog.wangdemao.cf/tag/tkqBRCmEA/"># 日报</a>
-    
-      <a href="https://blog.wangdemao.cf/tag/Y1AJIRZxZj/"># 教程</a>
+      <a href="https://blog.wangdemao.cf/tag/ETEHaIbZW/"># 题解</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="大事祭" href="https://blog.wangdemao.cf/post/da-shi-ji/">大事祭</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="大事祭" href="https://blog.wangdemao.cf/post/da-shi-ji/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="题解 CF837A 【Text Volume】" href="https://blog.wangdemao.cf/post/solution-cf837a/">题解 CF837A 【Text Volume】</a>
-        <a class="nav-mobile-next" title="题解 CF837A 【Text Volume】" href="https://blog.wangdemao.cf/post/solution-cf837a/">下一篇</a>
+        <a class="nav-pc-next" title="题解 P1805 【关灯】" href="https://blog.wangdemao.cf/post/solution-p1805/">题解 P1805 【关灯】</a>
+        <a class="nav-mobile-next" title="题解 P1805 【关灯】" href="https://blog.wangdemao.cf/post/solution-p1805/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
